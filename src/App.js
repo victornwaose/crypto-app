@@ -15,6 +15,7 @@ function App() {
             backgroundColor: "#14161a",
             color: "#fff",
             minHeight: "100vh",
+            overflowX: "hidden",
         },
     }));
     const classes = useStyle();
