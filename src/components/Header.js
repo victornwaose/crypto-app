@@ -1,5 +1,5 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import {
     AppBar,
     Container,
@@ -10,6 +10,7 @@ import {
     Toolbar,
     Typography,
     ThemeProvider,
+    Button,
 } from "@material-ui/core";
 import { CryptoState } from "../context/CryptoContext";
 
@@ -57,7 +58,21 @@ const Header = () => {
                         >
                             <MenuItem value="USD">USD</MenuItem>
                             <MenuItem value="NGN">Naira</MenuItem>
-                        </Select>
+                        </Select>{" "}
+                        <Link to="/login">
+                            <Button
+                                variant="contained"
+                                color="#fff"
+                                style={{
+                                    width: 85,
+                                    height: 40,
+                                    marginLeft: 15,
+                                    backgroundColor: "#EEBC1D",
+                                }}
+                            >
+                                Login
+                            </Button>
+                        </Link>
                     </Toolbar>{" "}
                 </Container>
             </AppBar>

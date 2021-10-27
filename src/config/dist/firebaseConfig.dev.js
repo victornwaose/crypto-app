@@ -1,7 +1,9 @@
 "use strict";
 
-var _app = require("firebase/app");
-
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
 var firebaseConfig = {
   apiKey: "AIzaSyBCDGAcYvLSSohw46osJr9ChzQB4pFEGO8",
   authDomain: "crypto-app-22279.firebaseapp.com",
@@ -10,4 +12,5 @@ var firebaseConfig = {
   messagingSenderId: "494926866383",
   appId: "1:494926866383:web:baa0b94f15c4a27d6114ba"
 };
-var app = (0, _app.initializeApp)(firebaseConfig);
+var _default = firebaseConfig;
+exports["default"] = _default;

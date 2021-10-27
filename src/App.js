@@ -6,6 +6,8 @@ import "./App.css";
 import Header from "./components/Header";
 import CoinPage from "./page/CoinPage";
 import HomePage from "./page/HomePage";
+import Login from "./components/authentication/authentication/Auth";
+import Alert from "./components/alert/Alert";
 
 function App() {
     const useStyle = makeStyles(() => ({
@@ -24,8 +26,10 @@ function App() {
                 <Switch>
                     <Route path="/" exact component={HomePage} />
                     <Route path="/coins/:id" exact component={CoinPage} />
+                    <Route path="/login" component={Login} />
                 </Switch>
             </div>
+            <Alert />
         </Router>
     );
 }

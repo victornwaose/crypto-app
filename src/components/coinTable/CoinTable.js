@@ -113,7 +113,7 @@ const CoinTable = () => {
                             </TableHead>
                             <TableBody>
                                 {handleSearch()
-                                    .slice(
+                                    ?.slice(
                                         (page - 1) * 10,
                                         (page - 1) * 10 + 10
                                     )

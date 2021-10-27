@@ -10,6 +10,12 @@ const CryptoContext = ({ children }) => {
     const [coins, setCoins] = useState([]);
     const [loading, setLoading] = useState(false);
     const [user, setUser] = useState(null);
+    const [open, setOpen] = useState(false);
+    const [alert, setAlert] = useState({
+        open: "false",
+        message: "",
+        type: "success",
+    });
 
     console.log(currency, "currency ");
 
@@ -42,6 +48,12 @@ const CryptoContext = ({ children }) => {
                 setCoins,
                 coins,
                 fetchCoins,
+                user,
+                setUser,
+                open,
+                setOpen,
+                setAlert,
+                alert,
             }}
         >
             {children}
