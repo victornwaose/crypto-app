@@ -1,6 +1,8 @@
+import { onAuthStateChanged } from "@firebase/auth";
 import { createContext, useContext, useEffect, useState } from "react";
 
 import { CoinList } from "../api/api";
+import { auth } from "../Firebase";
 
 const Crypto = createContext();
 
@@ -17,7 +19,12 @@ const CryptoContext = ({ children }) => {
         type: "success",
     });
 
-    console.log(currency, "currency ");
+    useEffect(() => {
+        onAuthStateChanged(auth, (user) => {
+            if (user) setUser(user);
+            else setUser(null);
+        });
+    }, []);
 
     const fetchCoins = async () => {
         try {

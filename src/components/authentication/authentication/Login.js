@@ -1,6 +1,7 @@
 import { TextField, Box, Button } from "@material-ui/core";
 import React, { useState } from "react";
 import { signInWithEmailAndPassword } from "@firebase/auth";
+import { useHistory } from "react-router";
 
 import { CryptoState } from "../../../context/CryptoContext";
 import { auth } from "../../../Firebase";
@@ -8,8 +9,9 @@ import { auth } from "../../../Firebase";
 const Login = ({ handleClose }) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-
+    const history = useHistory();
     const { setAlert } = CryptoState();
+
     const handleSubmit = async () => {
         if (!email || !password) {
             setAlert({
@@ -25,6 +27,8 @@ const Login = ({ handleClose }) => {
                 email,
                 password
             );
+            history.push("/");
+
             console.log(result);
             setAlert({
                 option: true,

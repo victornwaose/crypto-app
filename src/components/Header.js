@@ -13,6 +13,7 @@ import {
     Button,
 } from "@material-ui/core";
 import { CryptoState } from "../context/CryptoContext";
+import SideBar from "../sidebar/SideBar";
 
 const Header = () => {
     const useStyle = makeStyles(() => ({
@@ -25,7 +26,7 @@ const Header = () => {
         },
     }));
 
-    const { currency, setCurrency } = CryptoState() || {};
+    const { currency, setCurrency, user } = CryptoState() || {};
 
     const classes = useStyle();
 
@@ -59,20 +60,24 @@ const Header = () => {
                             <MenuItem value="USD">USD</MenuItem>
                             <MenuItem value="NGN">Naira</MenuItem>
                         </Select>{" "}
-                        <Link to="/login">
-                            <Button
-                                variant="contained"
-                                color="#fff"
-                                style={{
-                                    width: 85,
-                                    height: 40,
-                                    marginLeft: 15,
-                                    backgroundColor: "#EEBC1D",
-                                }}
-                            >
-                                Login
-                            </Button>
-                        </Link>
+                        {user ? (
+                            <SideBar />
+                        ) : (
+                            <Link to="/login">
+                                <Button
+                                    variant="contained"
+                                    color="#fff"
+                                    style={{
+                                        width: 85,
+                                        height: 40,
+                                        marginLeft: 15,
+                                        backgroundColor: "#EEBC1D",
+                                    }}
+                                >
+                                    Login
+                                </Button>
+                            </Link>
+                        )}
                     </Toolbar>{" "}
                 </Container>
             </AppBar>

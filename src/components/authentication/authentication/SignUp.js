@@ -1,6 +1,7 @@
 import { createUserWithEmailAndPassword } from "@firebase/auth";
 import { Box, Button, TextField } from "@material-ui/core";
 import React, { useState } from "react";
+import { useHistory } from "react-router";
 
 import { CryptoState } from "../../../context/CryptoContext";
 import { auth } from "../../../Firebase";
@@ -10,7 +11,7 @@ const SignUp = ({ handleClose }) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
-
+    const history = useHistory();
     const { setAlert } = CryptoState();
 
     const handleSubmit = async () => {
@@ -28,6 +29,7 @@ const SignUp = ({ handleClose }) => {
                 email,
                 password
             );
+            history.push("/");
             console.log(result);
             setAlert({
                 open: true,
