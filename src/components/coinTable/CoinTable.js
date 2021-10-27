@@ -18,43 +18,24 @@ import { useHistory } from "react-router";
 import { Pagination } from "@material-ui/lab";
 
 import { CryptoState } from "../../context/CryptoContext";
-import { CoinList } from "../../api/api";
 
 export function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
 const CoinTable = () => {
-    const [coins, setCoins] = useState([]);
-    const [loading, setLoading] = useState(false);
     const [search, setSearch] = useState("");
     const [page, setPage] = useState(1);
     const history = useHistory();
-    const { currency, symbol } = CryptoState() || {};
-    console.log(currency, "currency");
-
-    const fetchCoins = async () => {
-        try {
-            setLoading(true);
-            const response = await fetch(CoinList(currency));
-            if (response.ok) {
-                const data = await response.json();
-                setCoins(data);
-                setLoading(false);
-            }
-        } catch (error) {
-            console.log(error);
-        }
-    };
-    console.log(coins);
-
+    const { currency, symbol, loading, coins, fetchCoins } =
+        CryptoState() || {};
     useEffect(() => {
         fetchCoins();
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [currency]);
 
     const handleSearch = () => {
-        return coins.filter(
+        return coins?.filter(
             (coin) =>
                 coin?.name?.trim().toLowerCase().includes(search) ||
                 coin?.symbols?.trim().toLowerCase().includes(search)
