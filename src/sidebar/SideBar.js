@@ -3,8 +3,11 @@ import clsx from "clsx";
 import { makeStyles } from "@material-ui/core";
 import Drawer from "@material-ui/core/Drawer";
 import { Button, Box, Avatar } from "@material-ui/core";
+import { useHistory } from "react-router-dom";
 
 import { CryptoState } from "../context/CryptoContext";
+import { signOut } from "@firebase/auth";
+import { auth } from "../Firebase";
 
 const useStyles = makeStyles({
     container: {
@@ -30,14 +33,43 @@ const useStyles = makeStyles({
         backgroundColor: "#EEBC1D",
         objectFit: "contain",
     },
+    logout: {
+        height: "8%",
+        width: "100%",
+        backgroundColor: "#EEBC1D",
+        marginTop: 20,
+    },
+    watchList: {
+        flex: 1,
+        width: "100%",
+        backgroundColor: "grey",
+        borderRadius: 10,
+        padding: 15,
+        paddingTop: 10,
+        flexDirection: "column",
+        alignItems: "center",
+        gap: 12,
+        overflowY: "scroll",
+    },
 });
 
 export default function Sidebar() {
     const [state, setState] = useState({
         right: false,
     });
-    const { user } = CryptoState();
+    const history = useHistory();
+    const { user, setAlert } = CryptoState();
     const classes = useStyles();
+
+    const logOut = () => {
+        signOut(auth);
+        setAlert({
+            open: true,
+            type: "success",
+            message: "User Successfully LogOut ",
+        });
+        history.push("/login");
+    };
     const toggleDrawer = (anchor, open) => (event) => {
         if (
             event.type === "keydown" &&
@@ -87,9 +119,26 @@ export default function Sidebar() {
                                     }}
                                 >
                                     {user.displayName || user.email}
+                                    <div className={classes.watchList}>
+                                        <span
+                                            style={{
+                                                fontSize: 15,
+                                                textShadow: "0 0 5px black",
+                                            }}
+                                        >
+                                            WatchList
+                                        </span>
+                                    </div>
                                 </span>
                             </div>
                         </div>{" "}
+                        <Button
+                            variant="contained"
+                            className={classes.logOut}
+                            onClick={logOut}
+                        >
+                            LogOut
+                        </Button>
                     </Drawer>
                 </React.Fragment>
             ))}
