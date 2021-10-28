@@ -1,8 +1,9 @@
 import { onAuthStateChanged } from "@firebase/auth";
+import { doc, onSnapshot } from "@firebase/firestore";
 import { createContext, useContext, useEffect, useState } from "react";
 
 import { CoinList } from "../api/api";
-import { auth } from "../Firebase";
+import { auth, db } from "../Firebase";
 
 const Crypto = createContext();
 
@@ -18,7 +19,28 @@ const CryptoContext = ({ children }) => {
         message: "",
         type: "success",
     });
+
+    const [watchlist, setWatchlist] = useState([]);
     console.log(user);
+
+    useEffect(() => {
+        if (user) {
+            const coinRef = doc(db, "watchlist", user.uid);
+
+            var unsubscribe = onSnapshot(coinRef, (coin) => {
+                if (coin.exists()) {
+                    setWatchlist(coin?.data().coins);
+                } else {
+                    console.log("error");
+                }
+            });
+
+            return () => {
+                unsubscribe();
+            };
+        }
+    }, [user]);
+
     useEffect(() => {
         onAuthStateChanged(auth, (user) => {
             if (user) setUser(user);
@@ -61,6 +83,7 @@ const CryptoContext = ({ children }) => {
                 setOpen,
                 setAlert,
                 alert,
+                watchlist,
             }}
         >
             {children}
