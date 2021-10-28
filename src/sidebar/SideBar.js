@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import clsx from "clsx";
 import { makeStyles } from "@material-ui/core";
 import Drawer from "@material-ui/core/Drawer";
-import { Button, Box, Avatar } from "@material-ui/core";
+import { Button, Avatar } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
 
 import { CryptoState } from "../context/CryptoContext";
