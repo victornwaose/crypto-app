@@ -18,7 +18,7 @@ const CryptoContext = ({ children }) => {
         message: "",
         type: "success",
     });
-
+    console.log(user);
     useEffect(() => {
         onAuthStateChanged(auth, (user) => {
             if (user) setUser(user);

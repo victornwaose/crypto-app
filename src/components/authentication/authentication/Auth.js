@@ -41,7 +41,7 @@ const Auth = () => {
 
     const signWithGoogle = async () => {
         try {
-            const res = signInWithPopup(auth, googleProvider);
+            const res = await signInWithPopup(auth, googleProvider);
             history.push("/");
             setAlert({
                 open: true,
