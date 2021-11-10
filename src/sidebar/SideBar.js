@@ -5,12 +5,13 @@ import Drawer from "@material-ui/core/Drawer";
 import { Button, Avatar } from "@material-ui/core";
 import { AiFillDelete } from "react-icons/ai";
 import { useHistory } from "react-router-dom";
+import { doc, setDoc } from "@firebase/firestore";
 
 import { CryptoState } from "../context/CryptoContext";
 import { signOut } from "@firebase/auth";
 import { auth, db } from "../Firebase";
 import { numberWithCommas } from "../components/banner/Carousel";
-import { doc, setDoc } from "@firebase/firestore";
+
 
 const useStyles = makeStyles({
     container: {
@@ -102,6 +103,7 @@ export default function Sidebar() {
         });
         history.push("/login");
     };
+    
     const toggleDrawer = (anchor, open) => (event) => {
         if (
             event.type === "keydown" &&
@@ -127,7 +129,7 @@ export default function Sidebar() {
                         }}
                         onClick={toggleDrawer(anchor, true)}
                         src={user.photoURL}
-                        alt={user.displayName || user.email}
+                        alt={562}
                     />
                     <Drawer
                         anchor={anchor}
@@ -169,6 +171,7 @@ export default function Sidebar() {
                                                             <span>
                                                                 {coin?.name}
                                                             </span>
+                                                            {""}
                                                             <span
                                                                 style={{
                                                                     display:
