@@ -58,6 +58,7 @@ const Login = ({ handleClose }) => {
                 variant="outlined"
                 type="email"
                 color="#fff"
+                focused
                 label="Enter Email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -69,6 +70,7 @@ const Login = ({ handleClose }) => {
                 type="password"
                 label="Enter A Password"
                 color="#fff"
+                focused
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 style={{ border: "1px solid  #fff", borderRadius: 5 }}

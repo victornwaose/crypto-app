@@ -54,6 +54,7 @@ const SignUp = ({ handleClose }) => {
                 type="email"
                 label="Enter A Name"
                 color="#fff"
+                focused
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 fullWidth
@@ -63,6 +64,7 @@ const SignUp = ({ handleClose }) => {
                 variant="outlined"
                 color="#fff"
                 type="email"
+                focused
                 label="Enter Email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -73,6 +75,7 @@ const SignUp = ({ handleClose }) => {
                 variant="outlined"
                 type="password"
                 label="Enter A Password"
+                focused
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 style={{ border: "1px solid  #fff", borderRadius: 5 }}
