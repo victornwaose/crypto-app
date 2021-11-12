@@ -80,6 +80,7 @@ const SignUp = ({ handleClose }) => {
                     onChange={(e) => setName(e.target.value)}
                     fullWidth
                     style={{ border: "1px solid  #fff", borderRadius: 5 }}
+                    className={classes.title}
                 />
                 <TextField
                     variant="outlined"
@@ -88,6 +89,7 @@ const SignUp = ({ handleClose }) => {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     style={{ border: "1px solid  #fff", borderRadius: 5 }}
+                    className={classes.title}
                     fullWidth
                 />
                 <TextField
@@ -97,6 +99,7 @@ const SignUp = ({ handleClose }) => {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     style={{ border: "1px solid  #fff", borderRadius: 5 }}
+                    className={classes.title}
                     fullWidth
                 />
                 <TextField
@@ -104,6 +107,7 @@ const SignUp = ({ handleClose }) => {
                     type="password"
                     color="success"
                     label="Confirm your Password"
+                    className={classes.title}
                     value={confirmPassword}
                     onChange={(e) => setConfirmPassword(e.target.value)}
                     style={{
