@@ -6,3 +6,6 @@
 a {
   text-decoration:  none;
 }
+.MuiOutlinedInput-input {
+  color: white;
+}
