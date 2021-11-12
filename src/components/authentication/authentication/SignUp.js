@@ -53,6 +53,7 @@ const SignUp = ({ handleClose }) => {
                 variant="outlined"
                 type="email"
                 label="Enter A Name"
+                color="#fff"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 fullWidth
@@ -60,6 +61,7 @@ const SignUp = ({ handleClose }) => {
             />
             <TextField
                 variant="outlined"
+                color="#fff"
                 type="email"
                 label="Enter Email"
                 value={email}

@@ -57,7 +57,7 @@ const Login = ({ handleClose }) => {
             <TextField
                 variant="outlined"
                 type="email"
-                s
+                color="#fff"
                 label="Enter Email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -68,6 +68,7 @@ const Login = ({ handleClose }) => {
                 variant="outlined"
                 type="password"
                 label="Enter A Password"
+                color="#fff"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 style={{ border: "1px solid  #fff", borderRadius: 5 }}
