@@ -16,13 +16,25 @@ import { CryptoState } from "../context/CryptoContext";
 import SideBar from "../sidebar/SideBar";
 
 const Header = () => {
-    const useStyle = makeStyles(() => ({
+    const useStyle = makeStyles((theme) => ({
         title: {
             flex: 1,
             color: "gold",
             fontFamily: "Montserrat",
             fontWeight: "bold",
             cursor: "pointer",
+            [theme.breakpoints.down("md")]: {
+                h4: "h5",
+                marginTop: "9",
+            },
+            [theme.breakpoints.down("sm")]: {
+                h4: "h5",
+                marginTop: "9",
+            },
+            [theme.breakpoints.down("xs")]: {
+                h4: "h5",
+                marginTop: "9",
+            },
         },
     }));
 
@@ -47,7 +59,7 @@ const Header = () => {
                         <Typography
                             onClick={() => history.push("/")}
                             className={classes.title}
-                            variant="h4"
+                            variant="h5"
                         >
                             Crypto-Tracker
                         </Typography>

@@ -69,7 +69,7 @@ const Auth = () => {
             </AppBar>
             {value === 0 && <Login handleClose={handleClose} />}
             {value === 1 && <SignUp handleClose={handleClose} />}
-            <h4 style={{ textAlign: "center" }}>OR</h4>{" "}
+            <h4 style={{ textAlign: "center", marginBottom: 7 }}>OR</h4>{" "}
             <Box className={classes.google}>
                 <GoogleButton
                     style={{ width: "100%", outline: "none" }}

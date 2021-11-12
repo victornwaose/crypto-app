@@ -3,6 +3,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import "./App.css";
+import PrivateRoute from "./components/PrivateRoute";
 import Header from "./components/Header";
 import CoinPage from "./page/CoinPage";
 import HomePage from "./page/HomePage";
@@ -25,8 +26,12 @@ function App() {
             <div className={classes.App}>
                 <Header />
                 <Switch>
-                    <Route path="/" exact component={HomePage} />
-                    <Route path="/coins/:id" exact component={CoinPage} />
+                    <PrivateRoute path="/" exact>
+                        <HomePage />
+                    </PrivateRoute>
+                    <PrivateRoute path="/coins/:id">
+                        <CoinPage />
+                    </PrivateRoute>
                     <Route path="/login" component={Login} />
                 </Switch>
             </div>

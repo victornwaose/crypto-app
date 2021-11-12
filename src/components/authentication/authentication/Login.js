@@ -50,17 +50,19 @@ const Login = ({ handleClose }) => {
                 display: "flex",
                 flexDirection: "column",
                 gap: "20px",
-                color: "#fff",
+                color: "#0000",
             }}
             p={3}
         >
             <TextField
                 variant="outlined"
                 type="email"
+                s
                 label="Enter Email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 fullWidth
+                style={{ border: "1px solid  #fff", borderRadius: 5 }}
             />
             <TextField
                 variant="outlined"
@@ -68,6 +70,7 @@ const Login = ({ handleClose }) => {
                 label="Enter A Password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
+                style={{ border: "1px solid  #fff", borderRadius: 5 }}
                 fullWidth
             />
             <Button

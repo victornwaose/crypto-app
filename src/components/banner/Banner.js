@@ -32,7 +32,7 @@ const Banner = () => {
             <Container className={classes.bannerContent}>
                 <div className={classes.tagline}>
                     <Typography
-                        variant="h2"
+                        variant="h3"
                         style={{
                             fontWeight: "bold",
                             marginBottom: 15,
