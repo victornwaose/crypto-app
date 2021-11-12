@@ -50,7 +50,7 @@ const Login = ({ handleClose }) => {
                 display: "flex",
                 flexDirection: "column",
                 gap: "20px",
-                color: "#0000",
+                color: "#fff",
             }}
             p={3}
         >
