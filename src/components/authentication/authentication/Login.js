@@ -41,8 +41,6 @@ const Login = ({ handleClose }) => {
                 password
             );
             history.push("/");
-
-            console.log(result);
             setAlert({
                 option: true,
                 message: `login successful, Welcome back ${result.user.email}`,

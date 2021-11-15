@@ -21,7 +21,6 @@ const CryptoContext = ({ children }) => {
     });
 
     const [watchlist, setWatchlist] = useState([]);
-    console.log(user);
 
     useEffect(() => {
         if (user) {
@@ -61,7 +60,6 @@ const CryptoContext = ({ children }) => {
             console.log(error);
         }
     };
-    console.log(coins);
 
     useEffect(() => {
         if (currency === "NGN") setSymbol("NGN");

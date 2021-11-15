@@ -42,7 +42,6 @@ const SignUp = ({ handleClose }) => {
                 password
             );
             history.push("/");
-            console.log(result);
             setAlert({
                 open: true,
                 message: `sign up successful, Welcome ${result.user.email}`,

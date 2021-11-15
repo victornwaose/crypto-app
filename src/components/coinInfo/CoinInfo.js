@@ -28,7 +28,6 @@ const CoinInfo = ({ coin }) => {
             console.log(error);
         }
     };
-    console.log(historicalData);
     useEffect(() => {
         fetchHistoricalData();
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -60,7 +59,6 @@ const CoinInfo = ({ coin }) => {
         },
     }));
     const classes = useStyle();
-    console.log(chartDays);
 
     return (
         <ThemeProvider theme={darkTheme}>

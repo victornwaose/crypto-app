@@ -38,7 +38,6 @@ const CoinPage = () => {
             console.log(error);
         }
     };
-    console.log(coin);
 
     useEffect(() => {
         fetchSingleCoins();
